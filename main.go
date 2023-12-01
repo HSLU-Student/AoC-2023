@@ -46,7 +46,7 @@ func main() {
 }
 
 func runDay(dayNo int, day util.Day) {
-	input := fmt.Sprintf("%02d", dayNo)
+	input := fmt.Sprintf("day%02d", dayNo)
 	solutions := []util.Solution{day.Part1(util.GetContent(input)), day.Part2(util.GetContent(input))}
 
 	for _, s := range solutions {
