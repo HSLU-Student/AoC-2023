@@ -14,6 +14,6 @@ The solution of todays puzzle #%v is: %v
 Time elapsed: %v
 -------------------------------------------
 `
-	res := fmt.Sprintf(body, riddleNo, result, took.Milliseconds())
+	res := fmt.Sprintf(body, riddleNo, result, took)
 	return Solution(res)
 }

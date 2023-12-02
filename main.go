@@ -5,6 +5,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/HSLU-Student/AoC-2023/day01"
 	"github.com/HSLU-Student/AoC-2023/util"
 )
 
@@ -33,7 +34,9 @@ func main() {
 	}
 
 	//the puzzle registry with all puzzles
-	puzzles := map[int]util.Day{}
+	puzzles := map[int]util.Day{
+		1: day01.Day01{},
+	}
 
 	selectedPuzzle, exist := puzzles[day]
 
