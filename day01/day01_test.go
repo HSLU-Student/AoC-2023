@@ -1,4 +1,4 @@
-package day03
+package day01
 
 import (
 	"testing"
@@ -6,11 +6,11 @@ import (
 	"github.com/HSLU-Student/AoC-2023/util"
 )
 
-var INPUT = util.GetContentRoot("day03")
+var INPUT = util.GetContentRoot("day01")
 
 func TestPart1(t *testing.T) {
-	expect := 527369
-	got := Day03{}.Part1(INPUT)
+	expect := 54968
+	got := Day01{}.Part1(INPUT)
 
 	if got.Result != expect {
 		t.Errorf("Expected: %v, got: %v", expect, got)
@@ -18,8 +18,8 @@ func TestPart1(t *testing.T) {
 }
 
 func TestPart2(t *testing.T) {
-	expect := 54699
-	got := Day03{}.Part2(INPUT)
+	expect := 54094
+	got := Day01{}.Part2(INPUT)
 
 	if got.Result != expect {
 		t.Errorf("Expected: %v, got: %v", expect, got)

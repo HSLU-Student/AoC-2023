@@ -1,7 +1,6 @@
 package day03
 
 import (
-	"fmt"
 	"regexp"
 	"strconv"
 	"time"
@@ -61,7 +60,6 @@ func (d Day03) Part2(input string) util.Solution {
 func computeLookArounds(lineNo int, indices []int) bool {
 	//expand indeces
 	expandindeces, _ := util.Range(indices[0], indices[len(indices)-1])
-	fmt.Println(expandindeces)
 	//check lefthand side
 	if SYMCORD[lineNo][expandindeces[0]-1] {
 		return true

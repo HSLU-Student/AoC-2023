@@ -18,7 +18,16 @@ func GetContent(day string) string {
 	}
 
 	path := path.Join(cdir, "data", fmt.Sprintf("%s.txt", day))
+	return readContent(path)
 
+}
+
+func GetContentRoot(day string) string {
+	path := path.Join("/workspaces/AoC-2023/data", fmt.Sprintf("%s.txt", day))
+	return readContent(path)
+}
+
+func readContent(path string) string {
 	raw, err := os.ReadFile(path)
 
 	//err if file can't be read
