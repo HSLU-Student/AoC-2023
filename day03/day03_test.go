@@ -18,7 +18,7 @@ func TestPart1(t *testing.T) {
 }
 
 func TestPart2(t *testing.T) {
-	expect := 54699
+	expect := 73074886
 	got := Day03{}.Part2(INPUT)
 
 	if got.Result != expect {
