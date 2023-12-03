@@ -57,6 +57,6 @@ func runDay(dayNo int, day util.Day) {
 	solutions := []util.Solution{day.Part1(util.GetContent(input)), day.Part2(util.GetContent(input))}
 
 	for _, s := range solutions {
-		fmt.Print(string(s))
+		fmt.Print(s.ToString())
 	}
 }
