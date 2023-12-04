@@ -76,8 +76,9 @@ func (d Day04) Part2(input string) util.Solution {
 
 	//now run everthing against it
 	total := 0
+	lookuptable := map[int]int{}
 	for game := range util.SplitContentLine(input) {
-		total += RecursiveGameExecution(game+1, recursionmap)
+		total += RecursiveGameExecution(game+1, recursionmap, lookuptable)
 	}
 	return util.NewSolution(total, 2, time.Since(starttime))
 }
@@ -94,15 +95,20 @@ func ParseNumbers(numstr string) []int {
 	return numbers
 }
 
-// ineffectiv would make more sense to build a map with won copies after we calculated recusion once
-func RecursiveGameExecution(gameno int, recursionmap map[int][]int) int {
+func RecursiveGameExecution(gameno int, recursionmap map[int][]int, lookuptable map[int]int) int {
+	//shortcut if lookuptable entry exists
+	lookup, exists := lookuptable[gameno]
+	if exists {
+		return lookup
+	}
 	_, gencopys := recursionmap[gameno]
 	if gencopys {
 		recres := 0
 		for _, copy := range recursionmap[gameno] {
-			recres += RecursiveGameExecution(copy, recursionmap)
+			recres += RecursiveGameExecution(copy, recursionmap, lookuptable)
 		}
-		return recres + 1 //+1 because every card by itself has a value of 1
+		lookuptable[gameno] = recres + 1
+		return lookuptable[gameno] //+1 because every card by itself has a value of 1
 	} else {
 		return 1
 	}
