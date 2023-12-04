@@ -1,7 +1,6 @@
 package day04
 
 import (
-	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -77,7 +76,6 @@ func (d Day04) Part2(input string) util.Solution {
 
 	//now run everthing against it
 	total := 0
-	fmt.Println(recursionmap)
 	for game := range util.SplitContentLine(input) {
 		total += RecursiveGameExecution(game+1, recursionmap)
 	}
