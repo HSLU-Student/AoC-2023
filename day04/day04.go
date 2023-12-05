@@ -2,7 +2,6 @@ package day04
 
 import (
 	"regexp"
-	"strconv"
 	"strings"
 	"time"
 
@@ -21,13 +20,13 @@ func (d Day04) Part1(input string) util.Solution {
 
 		//little hack to build a set
 		winningnum := map[int]struct{}{}
-		for _, num := range ParseNumbers(content[0]) {
+		for _, num := range util.ParseNumbers(content[0]) {
 			winningnum[num] = struct{}{}
 		}
 
 		//query set for hits
 		cardtotal := 0
-		for _, num := range ParseNumbers(content[1]) {
+		for _, num := range util.ParseNumbers(content[1]) {
 			_, hit := winningnum[num]
 			if hit {
 				if cardtotal == 0 {
@@ -54,13 +53,13 @@ func (d Day04) Part2(input string) util.Solution {
 
 		//little hack to build a set
 		winningnum := map[int]struct{}{}
-		for _, num := range ParseNumbers(content[0]) {
+		for _, num := range util.ParseNumbers(content[0]) {
 			winningnum[num] = struct{}{}
 		}
 
 		//query set for no hits
 		hits := 0
-		for _, num := range ParseNumbers(content[1]) {
+		for _, num := range util.ParseNumbers(content[1]) {
 			_, hit := winningnum[num]
 			if hit {
 				hits += 1
@@ -81,18 +80,6 @@ func (d Day04) Part2(input string) util.Solution {
 		total += RecursiveGameExecution(game+1, recursionmap, lookuptable)
 	}
 	return util.NewSolution(total, 2, time.Since(starttime))
-}
-
-func ParseNumbers(numstr string) []int {
-	reg := regexp.MustCompile(`\d+`)
-	numbersstr := reg.FindAllString(numstr, -1)
-
-	numbers := []int{}
-	for _, numstr := range numbersstr {
-		numi, _ := strconv.Atoi(numstr)
-		numbers = append(numbers, numi)
-	}
-	return numbers
 }
 
 func RecursiveGameExecution(gameno int, recursionmap map[int][]int, lookuptable map[int]int) int {
