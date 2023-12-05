@@ -9,6 +9,7 @@ import (
 	"github.com/HSLU-Student/AoC-2023/day02"
 	"github.com/HSLU-Student/AoC-2023/day03"
 	"github.com/HSLU-Student/AoC-2023/day04"
+	"github.com/HSLU-Student/AoC-2023/day05"
 	"github.com/HSLU-Student/AoC-2023/util"
 )
 
@@ -42,6 +43,7 @@ func main() {
 		2: day02.Day02{},
 		3: day03.Day03{},
 		4: day04.Day04{},
+		5: day05.Day05{},
 	}
 
 	selectedPuzzle, exist := puzzles[day]
