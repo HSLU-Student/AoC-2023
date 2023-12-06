@@ -13,6 +13,6 @@ func TestPart1(t *testing.T) {
 	got := Day05{}.Part1(INPUT)
 
 	if got.Result != expect {
-		t.Errorf("Expected: %v, got: %v", expect, got)
+		t.Errorf("Expected: %v, got: %v", expect, got.Result)
 	}
 }

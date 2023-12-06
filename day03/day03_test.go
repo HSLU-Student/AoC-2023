@@ -13,7 +13,7 @@ func TestPart1(t *testing.T) {
 	got := Day03{}.Part1(INPUT)
 
 	if got.Result != expect {
-		t.Errorf("Expected: %v, got: %v", expect, got)
+		t.Errorf("Expected: %v, got: %v", expect, got.Result)
 	}
 }
 
@@ -22,6 +22,6 @@ func TestPart2(t *testing.T) {
 	got := Day03{}.Part2(INPUT)
 
 	if got.Result != expect {
-		t.Errorf("Expected: %v, got: %v", expect, got)
+		t.Errorf("Expected: %v, got: %v", expect, got.Result)
 	}
 }
