@@ -1,7 +1,6 @@
 package day07
 
 import (
-	"fmt"
 	"sort"
 	"strconv"
 	"strings"
@@ -76,8 +75,6 @@ func (d Day07) Part2(input string) util.Solution {
 	for _, game := range util.SplitContentLine(input) {
 		unrankedgame, cardmap, mostcommoncard := parseGameFiltered(game, CARDVALUEJOKER, CARDVALUEJOKER['J'])
 
-		fmt.Println(unrankedgame)
-		fmt.Println(cardmap)
 		//manipulate cardmap if jokers exist
 		jokers, exist := cardmap[CARDVALUEJOKER['J']]
 		if exist {
@@ -91,7 +88,7 @@ func (d Day07) Part2(input string) util.Solution {
 			//drop joker key value
 			delete(cardmap, CARDVALUEJOKER['J'])
 		}
-		fmt.Println(cardmap)
+
 		games = append(games, rankGame(unrankedgame, cardmap[mostcommoncard], cardmap))
 	}
 
