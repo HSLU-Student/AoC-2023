@@ -6,7 +6,7 @@ import (
 )
 
 func ParseNumbers(numstr string) []int {
-	reg := regexp.MustCompile(`\d+`)
+	reg := regexp.MustCompile(`-?\d+`)
 	numbersstr := reg.FindAllString(numstr, -1)
 
 	numbers := []int{}
