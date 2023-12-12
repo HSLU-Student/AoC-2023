@@ -77,12 +77,12 @@ func (d Day04) Part2(input string) util.Solution {
 	total := 0
 	lookuptable := map[int]int{}
 	for game := range util.SplitContentLine(input) {
-		total += RecursiveGameExecution(game+1, recursionmap, lookuptable)
+		total += recursiveGameExecution(game+1, recursionmap, lookuptable)
 	}
 	return util.NewSolution(total, 2, time.Since(starttime))
 }
 
-func RecursiveGameExecution(gameno int, recursionmap map[int][]int, lookuptable map[int]int) int {
+func recursiveGameExecution(gameno int, recursionmap map[int][]int, lookuptable map[int]int) int {
 	//shortcut if lookuptable entry exists
 	lookup, exists := lookuptable[gameno]
 	if exists {
@@ -92,7 +92,7 @@ func RecursiveGameExecution(gameno int, recursionmap map[int][]int, lookuptable 
 	if gencopys {
 		recres := 0
 		for _, copy := range recursionmap[gameno] {
-			recres += RecursiveGameExecution(copy, recursionmap, lookuptable)
+			recres += recursiveGameExecution(copy, recursionmap, lookuptable)
 		}
 		lookuptable[gameno] = recres + 1
 		return lookuptable[gameno] //+1 because every card by itself has a value of 1

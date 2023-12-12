@@ -55,7 +55,7 @@ func (d Day01) Part2(input string) util.Solution {
 		for index, char := range strings.Split(line, "") {
 			//check char could be beginning of a digit word & is long enough for a match
 			if reg.MatchString(char) && len(line[index:]) >= 3 {
-				digit, exists := StringToDigitParse(line[index:])
+				digit, exists := stringToDigitParse(line[index:])
 				if exists {
 					numbers = append(numbers, digit)
 					continue
@@ -77,7 +77,7 @@ func (d Day01) Part2(input string) util.Solution {
 	return util.NewSolution(total, 2, time.Since(starttime))
 }
 
-func StringToDigitParse(pattern string) (string, bool) {
+func stringToDigitParse(pattern string) (string, bool) {
 	patternlen := len(pattern)
 	possiblewords := []string{}
 

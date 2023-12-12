@@ -18,7 +18,7 @@ func (d Day03) Part1(input string) util.Solution {
 
 	//get symbol cord map
 	reg := regexp.MustCompile("[^0-9|.|\n]")
-	crmp := NewCordGrid(input, *reg)
+	crmp := newCordGrid(input, *reg)
 
 	//find numbers
 	total := 0
@@ -42,7 +42,7 @@ func (d Day03) Part2(input string) util.Solution {
 
 	//get symbol cord map
 	reg := regexp.MustCompile(`\*`)
-	crmp := NewCordGrid(input, *reg)
+	crmp := newCordGrid(input, *reg)
 
 	//build result map
 	resmap := map[int]map[int][]int{}
@@ -75,7 +75,7 @@ func (d Day03) Part2(input string) util.Solution {
 	return util.NewSolution(total, 2, time.Since(starttime))
 }
 
-func NewCordGrid(input string, reg regexp.Regexp) CordMap {
+func newCordGrid(input string, reg regexp.Regexp) CordMap {
 	crmp := CordMap{}
 	for index, line := range util.SplitContentLine(input) {
 		//filter lines with no hits

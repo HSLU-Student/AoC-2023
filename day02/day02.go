@@ -23,7 +23,7 @@ func (d Day02) Part1(input string) util.Solution {
 	total := 0
 	for index, line := range util.SplitContentLine(input) {
 		gamevalid := true
-		parsedline := ParseGame(line)
+		parsedline := parseGame(line)
 		for _, pick := range parsedline {
 			num, _ := strconv.Atoi(pick[0])
 			if maxValue[pick[1]] < num {
@@ -44,7 +44,7 @@ func (d Day02) Part2(input string) util.Solution {
 	starttime := time.Now()
 	total := 0
 	for _, line := range util.SplitContentLine(input) {
-		parsedline := ParseGame(line)
+		parsedline := parseGame(line)
 		gamemap := map[string]int{
 			"red":   1, //init with 1 to prevent erasure by 0 multiplication (only two cube colors exists)
 			"green": 1,
@@ -70,7 +70,7 @@ func (d Day02) Part2(input string) util.Solution {
 	return util.NewSolution(total, 2, time.Since(starttime))
 }
 
-func ParseGame(gamestring string) [][]string {
+func parseGame(gamestring string) [][]string {
 	//remove game number
 	reg := regexp.MustCompile("Game [0-9]*: ")
 	nstring := reg.ReplaceAllString(gamestring, "")
