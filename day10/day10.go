@@ -39,18 +39,8 @@ type Pipe struct {
 func (d Day10) Part1(input string) util.Solution {
 	starttime := time.Now()
 
-	//build pipe plot & get starting point (inefficent way to search the startpoint)
-	pipeplot := [][]string{}
-	startingpipe := Pipe{}
-	for idx, line := range util.SplitContentLine(input) {
-		coordline := strings.Split(line, "")
-
-		pipeplot = append(pipeplot, coordline)
-
-		if cord := util.ContainsAtIndex[string](coordline, "S"); cord != -1 {
-			startingpipe = Pipe{y: idx, x: cord, pipe: "S"}
-		}
-	}
+	//build pipe plot & get starting point
+	pipeplot, startingpipe := buildPlot(input)
 
 	//find pipe connect to starting pipe
 	currentpipe := findStartConnectedPipe(startingpipe, pipeplot)
@@ -71,6 +61,23 @@ func (d Day10) Part2(input string) util.Solution {
 	starttime := time.Now()
 	res := "Not implemeted yet..."
 	return util.NewSolution(res, 2, time.Since(starttime))
+}
+
+func buildPlot(input string) ([][]string, Pipe) {
+	//build pipe plot & get starting point (inefficent way to search the startpoint)
+	pipeplot := [][]string{}
+	startingpipe := Pipe{}
+
+	for idx, line := range util.SplitContentLine(input) {
+		coordline := strings.Split(line, "")
+
+		pipeplot = append(pipeplot, coordline)
+
+		if cord := util.ContainsAtIndex[string](coordline, "S"); cord != -1 {
+			startingpipe = Pipe{y: idx, x: cord, pipe: "S"}
+		}
+	}
+	return pipeplot, startingpipe
 }
 
 func nextPipe(current Pipe, pipeplot [][]string) Pipe {
