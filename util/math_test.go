@@ -19,3 +19,12 @@ func TestLcm(t *testing.T) {
 		t.Errorf("Expected: %v, got: %v", expect, got)
 	}
 }
+
+func TestAbs(t *testing.T) {
+	expect := 1456
+	got := Abs(-1456)
+
+	if expect != got {
+		t.Errorf("Excepted: %v, got: %v", expect, got)
+	}
+}

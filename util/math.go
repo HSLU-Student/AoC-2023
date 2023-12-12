@@ -19,3 +19,11 @@ func Gcd(a, b int64) int64 {
 func Lcm(a, b int64) int64 {
 	return a * b / Gcd(a, b)
 }
+
+// abs of a int
+func Abs(a int) int {
+	if a < 0 {
+		a *= -1
+	}
+	return a
+}

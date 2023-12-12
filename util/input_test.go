@@ -18,3 +18,18 @@ multiline string`
 		t.Errorf("Expected: %v, got: %v", expect, got)
 	}
 }
+
+func TestSplitContentRow(t *testing.T) {
+	input := `This
+is
+a
+string`
+
+	expect := []string{"Tias", "hst", "ir", "si", "n", "g"}
+	got := SplitContentRow(input)
+
+	if !reflect.DeepEqual(expect, got) {
+		t.Errorf("Expected: %v, got: %v", expect, got)
+	}
+
+}
